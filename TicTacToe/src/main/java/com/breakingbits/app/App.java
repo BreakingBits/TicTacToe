@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package com.breakingbits.app;
 
 /**
  * Hello world!

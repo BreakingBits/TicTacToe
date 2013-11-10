@@ -1,5 +1,3 @@
-#!/bin/package
-
 mkdir -p tmp
 cp target/TicTacToe-1.0-SNAPSHOT.jar tmp/TicTacToe-1.0-SNAPSHOT.jar
 java -cp tmp/TicTacToe-1.0-SNAPSHOT.jar com.breakingbits.app.App 

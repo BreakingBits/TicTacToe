@@ -2,7 +2,6 @@
 
 sh ./bin/clean
 sh ./bin/unit-test
-sh ./bin/compile
 sh ./bin/package
 sh ./bin/deploy
 

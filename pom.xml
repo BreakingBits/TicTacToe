@@ -28,8 +28,7 @@
       <configuration>
         <archive>
           <manifest>
-
-            <mainClass>com.breakingbits.app.App</mainClass>
+            <mainClass>com.breakingbits.app.TicTacToe</mainClass>
           </manifest>
         </archive>
         <descriptorRefs>

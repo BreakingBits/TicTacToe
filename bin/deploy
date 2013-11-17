@@ -1,4 +1,4 @@
 mkdir -p tmp
 cp target/TicTacToe-1.0-SNAPSHOT-jar-with-dependencies.jar tmp/TicTacToe-1.0-SNAPSHOT-jar-with-dependencies.jar
-java -cp tmp/TicTacToe-1.0-SNAPSHOT-jar-with-dependencies.jar com.breakingbits.app.App 
+java -cp tmp/TicTacToe-1.0-SNAPSHOT-jar-with-dependencies.jar com.breakingbits.app.TicTacToe 
 

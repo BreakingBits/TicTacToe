@@ -1,0 +1,12 @@
+table td
+{
+	width:100px;
+	height:100px;
+	padding:10px;
+	background-color: #eee;
+	border: 1px solid #ddd;
+}
+table td:hover
+{
+	background-color: #ddd;
+}

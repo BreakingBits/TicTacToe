@@ -1,13 +1,17 @@
 package com.breakingbits.app;
+import static spark.Spark.*;
+import spark.*;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	get(new Route("/hello") {
+    		@Override
+    		public Object handle(Request request, Response response) {
+    			return "Hello world!";
+    		}
+    	});
+        //System.out.println( "Hello World!" );
     }
 }

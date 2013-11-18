@@ -4,5 +4,7 @@ import spark.*;
 
 public class GameBoard
 {
-    
+ 	public static Boolean checkIfWinner(Boolean test){
+ 		return true;
+ 	} 
 }

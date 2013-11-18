@@ -7,7 +7,7 @@ $(document).ready(function() {
         $("#inputPlayer2").show();
     });
 
-    form.submit(function(e) {
+    $( "#enterPlayer2" ).click(function(e) {
         var p1 = $("#player1").val();
         var p2 = $("#player2").val();
         $.ajax({
@@ -15,12 +15,22 @@ $(document).ready(function() {
             url: form.attr('action'),
             data: 'p1=' + p1 + '&p2=' + p2
         }).done(function(obj) {
-            $('#X').append(': ' + obj.p1);
-            $('#O').append(': ' + obj.p2);
-            $('#results').html('Djöfull gekk þetta vel! ' + obj.p1 + ' ooooog ' + obj.p2).attr('class', 'alert alert-success');
+            $('#X').append(': ' + p1);
+            $('#O').append(': ' + p2);
+            $('#board').show();
+            $("#inputPlayer2").hide();
         }).fail(function() {
-            $('#results').html('You fucked up son!').attr('class', 'alert alert-danger');
+            $('#message').html('Vinsamlegast sláið inn bæði nöfnin').attr('class', 'alert alert-danger');
         });
         e.preventDefault();
     });
+
+    $(document).keypress(function(e){
+        if (e.which == 13 && $("#player1").is(":focus")){
+            e.preventDefault();
+            $("#enterPlayer1").click();
+            $('#player2').focus();
+        }
+    });
+
 });

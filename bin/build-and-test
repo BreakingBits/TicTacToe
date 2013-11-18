@@ -1,7 +1,0 @@
-#!/bin/bash
-
-sh ./bin/clean
-sh ./bin/unit-test
-sh ./bin/package
-sh ./bin/deploy
-

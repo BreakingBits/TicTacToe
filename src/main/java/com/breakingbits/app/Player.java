@@ -11,11 +11,15 @@ public class Player
     private int ties;
 
     public Player() {
-    	name = "";
     	symbol = "";
     	wins = 0;
     	losses = 0;
     	ties = 0;
+    }
+
+    public String getName()
+    {
+        return name;
     }
 
     public void setName (String nm) {

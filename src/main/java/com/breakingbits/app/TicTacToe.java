@@ -1,7 +1,8 @@
 package com.breakingbits.app;
 import static spark.Spark.*;
 import spark.*;
-import com.google.gson.Gson;
+import com.google.gson.*;
+import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.*;
 
@@ -27,13 +28,8 @@ public class TicTacToe
                 PlayerOne.setName(playerOneName);
                 PlayerTwo.setName(playerTwoName);
 
-                Gson gson = new Gson();
-                String json = gson.toJson("herr");
-                
                 //Send the response
-                response.body(json);
                 response.status(200); 
-                response.type("application/json"); 
                 return response;
 
             }
@@ -49,6 +45,4 @@ public class TicTacToe
         
     }
 
-
-  
 }

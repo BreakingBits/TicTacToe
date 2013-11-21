@@ -1,11 +1,7 @@
 package com.breakingbits.app;
 import static spark.Spark.*;
 import spark.*;
-import com.google.gson.*;
-import org.json.JSONObject;
-import java.util.ArrayList;
 import java.util.*;
-
 
 public class TicTacToe
 {
@@ -31,17 +27,19 @@ public class TicTacToe
                 //Send the response
                 response.status(200); 
                 return response;
-
             }
         });
-        
 
-        get(new Route("/hello") {
-         @Override
-         public Object handle(Request request, Response response) {
-            return "Hello World!";
-         }
-        });      
+        post(new Route("/clickField") {
+            @Override
+            public Object handle(Request request, Response response) {
+
+                String field = request.queryParams("idOfField");
+                return "field selected: " + field;
+            }
+        });
+
+
         
     }
 

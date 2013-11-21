@@ -44,4 +44,31 @@ public class Player
         symbol = sym;
     }
 
+    public int getWins()
+    {
+        return wins;
+    }
+
+    public void incrementWins () {
+        wins = wins + 1;
+    }
+
+    public int getLosses()
+    {
+        return losses;
+    }
+
+    public void incrementLosses () {
+        losses = losses + 1;
+    }
+
+    public int getTies()
+    {
+        return ties;
+    }
+
+    public void incrementTies () {
+        ties = ties + 1;
+    }
+
 }

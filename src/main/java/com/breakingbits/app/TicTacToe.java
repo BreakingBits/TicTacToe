@@ -34,7 +34,8 @@ public class TicTacToe
 
             }
         });
-        
+
+        GameInstance newGame = new GameInstance(PlayerOne, PlayerTwo);
 
         get(new Route("/hello") {
          @Override

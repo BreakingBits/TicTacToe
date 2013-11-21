@@ -38,8 +38,6 @@ public class TicTacToe
                 return "field selected: " + field;
             }
         });
-
-
         
     }
 

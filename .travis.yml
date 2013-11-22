@@ -6,6 +6,6 @@ deploy:
   provider: heroku
   api_key:
     secure: gsX9byxHsfK56zPCrXGBj8wMhKvB62qpL44A8FF47wbi5oipehR3y7FD9SL/bwWAew6zlDg+tcGm6bOxdtRCA2fLm6/bB+7sxkPaiKqTLN51Hk4VHK4qYEmt1veW8PRbfXHnAfNb/i1VnYkJPxvBVQCxlqaRLnqd+t8rlnM5ulA=
-  app: secret-falls-8746
+  app: breakingbits-staging
   on:
     repo: BreakingBits/TicTacToe

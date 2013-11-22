@@ -156,13 +156,12 @@ public class GameBoardTest
     	assertEquals(true, GameBoard.checkIfTie());
         testGrid1.clearGrid();
     }
-    /*
-    @Test
-    public void testConstructor() {
-        GameBoard testGrid2 = new GameBoard();
 
-        assertEquals(null, testGrid2);
+    @Test
+    public void testClearGrid() {
+        testGrid1.setGrid(0,1);
+        testGrid1.clearGrid();
+        assertEquals(0, GameBoard.getGrid(0));
     }
-    */
     
 }

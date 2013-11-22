@@ -18,6 +18,10 @@ public class GameBoard
  		return grid;
  	}
 
+ 	public static int getGrid(int slot) {
+ 		return grid[slot];
+ 	}
+
  	public static void clearGrid() {
  		for (int i = 0; i < 9; i++) {
  			grid[i] = 0;
@@ -88,7 +92,4 @@ public class GameBoard
  		} 
  		return true;
  	}
- 
-
-
 }

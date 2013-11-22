@@ -2,6 +2,7 @@ package com.breakingbits.app;
 import static spark.Spark.*;
 import spark.*;
 import java.util.*;
+import org.json.simple.JSONObject;
 
 public class TicTacToe
 {
@@ -10,32 +11,34 @@ public class TicTacToe
         staticFileLocation("/public");
 
         //Init players
-        final Player PlayerOne = new Player();
-        final Player PlayerTwo = new Player();  
+        final Player playerOne = new Player();
+        final Player playerTwo = new Player();  
 
         //Assign names
         post(new Route("/insertName") {
             @Override
             public Object handle(Request request, Response response) {
+                String playerOneName = request.queryParams("player1");
+                String playerTwoName = request.queryParams("player2");
 
-                String playerOneName = request.queryParams("p1");
-                String playerTwoName = request.queryParams("p2");
+                playerOne.setName(playerOneName);
+                playerTwo.setName(playerTwoName);
 
-                PlayerOne.setName(playerOneName);
-                PlayerTwo.setName(playerTwoName);
-
-                //Send the response
-                response.status(200); 
-                return response;
+                //Send the response as JSON Object
+                JSONObject playerObject = new JSONObject();  
+                playerObject.put("player1", playerOneName);
+                playerObject.put("player2", playerTwoName);
+                return playerObject;
             }
         });
 
         post(new Route("/clickField") {
             @Override
             public Object handle(Request request, Response response) {
-
                 String field = request.queryParams("idOfField");
-                return "field selected: " + field;
+                JSONObject fieldObject = new JSONObject();
+                fieldObject.put("filedClicked", field);
+                return fieldObject;
             }
         });
         

@@ -14,13 +14,17 @@ public class GameBoard
 		grid[i] = v;
 	}
 
+ 	public static int[] getGrid() {
+ 		return grid;
+ 	}
+
  	public static void clearGrid() {
  		for (int i = 0; i < 9; i++) {
  			grid[i] = 0;
  		}
  	}
 	
- 	public static Boolean checkIfWinner(int symbol){
+ 	public static Boolean checkIfWinner(int symbol) {
  		//In the grid: Zero is empty, One is X, Two is Circle.
  		//-----Horizontal win-----
  		if(((grid[0] == symbol) && 
@@ -74,7 +78,7 @@ public class GameBoard
  		return false;
  	} 
 
- 	public static Boolean checkIfTie(){
+ 	public static Boolean checkIfTie() {
  		//PRECONDITION: Must be called after checkIfWinner.
  		//This function checks if the grid is full.
  		for(int i = 0; i < 9; i++){

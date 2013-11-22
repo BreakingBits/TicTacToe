@@ -12,7 +12,9 @@ public class TicTacToe
 
         //Init players
         final Player playerOne = new Player();
-        final Player playerTwo = new Player();  
+        final Player playerTwo = new Player(); 
+        playerOne.setSymbol(1);
+        playerTwo.setSymbol(2); 
 
         //Assign names
         post(new Route("/insertName") {
@@ -32,16 +34,25 @@ public class TicTacToe
             }
         });
 
+        final GameInstance game = new GameInstance(playerOne, playerTwo);
+        final int grid[] = game.getGameBoard();
+
         post(new Route("/clickField") {
             @Override
             public Object handle(Request request, Response response) {
                 String cellStr = request.queryParams("idOfCell");
+                int cell = Integer.parseInt(cellStr);
+                game.playerMakeMove(cell, 1);
+
+                int gameStatus = game.gameStatus();
+
                 JSONObject cellObject = new JSONObject();
-                cellObject.put("idOfCell", cellStr);
+                cellObject.put("gameStatus", gameStatus);
                 return cellObject;
             }
         });
-        
+
+
     }
 
 }

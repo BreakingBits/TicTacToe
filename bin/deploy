@@ -1,7 +1,25 @@
-#!/bin/bash
-
 sh ./bin/clean
-sh ./bin/package
-sh ./bin/run
 
+status=$?
 
+if [ $status -eq 0 ]; then
+	sh ./bin/package
+else
+	echo "Maven CLEAN failure detected."
+fi
+
+status=$?
+
+if [ $status -eq 0 ]; then
+	sh ./bin/run
+else
+	echo "Maven PACKAGE failure detected."
+fi
+
+fail=$status
+
+if [ $fail -eq 0 ]; then
+	echo "Maven deployment successfull."
+else
+	echo "Maven deployment unsuccessfull, stopping process."
+fi

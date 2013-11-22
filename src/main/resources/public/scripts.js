@@ -71,8 +71,7 @@ $(document).ready(function() {
               $(cellId).addClass('played');
               $('#X').toggleClass('activePlayer');
               $('#O').toggleClass('activePlayer');
-              turn++;
-      
+              turn++;      
              }
              
         }).fail(function() {

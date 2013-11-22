@@ -49,6 +49,8 @@ public class TicTacToe
 
                 JSONObject cellObject = new JSONObject();
                 cellObject.put("gameStatus", gameStatus);
+                cellObject.put("activePlayer", game.getActivePlayer());
+                cellObject.put("turn", game.getTurns());
                 return cellObject;
             }
         });
@@ -56,9 +58,12 @@ public class TicTacToe
         post(new Route("/resetGame") {
             @Override
             public Object handle(Request request, Response response) {
-                
-                game.clearBoard();                
-                return "ok";
+                JSONObject cellObject = new JSONObject();
+                game.clearBoard(); 
+
+                cellObject.put("activePlayer", game.getActivePlayer()); 
+                cellObject.put("turn", game.getTurns());             
+                return cellObject;
             }
         });
 

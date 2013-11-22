@@ -9,9 +9,10 @@ public class GameBoard
 	public GameBoard() {
 		grid = new int[9];
 	}
-
+	//return 1 ef tókst, returnar 0 ef það var í boxinu
 	public void setGrid(int i, int v) {
-		grid[i] = v;
+		
+			grid[i] = v;		
 	}
 
  	public static int[] getGrid() {

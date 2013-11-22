@@ -5,6 +5,7 @@ import org.junit.Test;
 
 public class PlayerTest
 {
+    // Footest
     Player testPlayer1 = new Player();
 
     @Test

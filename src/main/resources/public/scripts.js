@@ -50,7 +50,7 @@ $(document).ready(function() {
             symbol = "O";
            
         }
-        turn++;
+       
 
         var cell = $(this).attr("id");
         var idOfCell = cell.slice(5);
@@ -68,8 +68,10 @@ $(document).ready(function() {
              if ($('#' + cell).contents().length == 0) 
              {
               $(cellId).append("<span class='token'>" + symbol + "</symbol>"); 
-                $('#X').toggleClass('activePlayer');
-             $('#O').toggleClass('activePlayer');
+              $(cellId).addClass('played');
+              $('#X').toggleClass('activePlayer');
+              $('#O').toggleClass('activePlayer');
+              turn++;
       
              }
              
@@ -97,6 +99,9 @@ $(document).ready(function() {
            
         }).done(function() {
            console.log("cleared");
+           $('#X').toggleClass('activePlayer');
+           $('#O').toggleClass('activePlayer');
+           $('.gameCell').removeClass('played');
 
           
         }).fail(function() {

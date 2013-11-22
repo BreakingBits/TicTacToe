@@ -1,9 +1,14 @@
+
 table#board
 {
 	display: none;
+	
 }
+
+
 table td
 {
+	background-image:url('http://i.imgur.com/TpM0rdt.jpg');
 	width:120px;
 	height:100px;
 	padding:10px;
@@ -34,4 +39,9 @@ text-align:center;
 .activePlayer
 {
 	font-weight:bold;
+}
+
+.played
+{
+	background: #FFF;
 }

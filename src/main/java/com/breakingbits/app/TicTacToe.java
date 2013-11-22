@@ -10,7 +10,7 @@ public class TicTacToe
     {
         staticFileLocation("/public");
 
-        //setPort(Integer.valueOf(System.getenv("PORT")));
+        setPort(Integer.valueOf(System.getenv("PORT")));
 
         //Init players
         final Player playerOne = new Player();

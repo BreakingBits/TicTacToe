@@ -10,7 +10,7 @@ public class TicTacToe
     {
         staticFileLocation("/public");
 
-        setPort(Integer.valueOf(System.getenv("PORT")));
+        //setPort(Integer.valueOf(System.getenv("PORT")));
 
         //Init players
         final Player playerOne = new Player();
@@ -47,13 +47,23 @@ public class TicTacToe
                 int cell = Integer.parseInt(cellStr);
                 //String playerStr = request.queryParams("player");
                 //int player = Integer.parseInt(playerStr);
+                String playerName = "";
                 int legal = game.playerMakeMove(cell, activePlayer );
 
                 int gameStatus = game.gameStatus();
 
+                if(activePlayer == 2)
+                    {
+                        playerName = playerOne.getName();
+                    }
+                if(activePlayer == 1)
+                    {
+                        playerName = playerTwo.getName();
+                    }
                 JSONObject cellObject = new JSONObject();
                 cellObject.put("gameStatus", gameStatus);
                 cellObject.put("activePlayer", game.getActivePlayer());
+                cellObject.put("playerName", playerName);
                 cellObject.put("turn", game.getTurns());
                 cellObject.put("legal", legal);
                 return cellObject;
@@ -65,6 +75,9 @@ public class TicTacToe
             public Object handle(Request request, Response response) {
                 JSONObject cellObject = new JSONObject();
                 game.clearBoard(); 
+
+
+
 
                 cellObject.put("activePlayer", game.getActivePlayer()); 
                 cellObject.put("turn", game.getTurns());             

@@ -59,7 +59,12 @@ text-align:center;
 #players
 {
 	padding-top:22px;
-	font-size: 18px;
+	font-size: 24px;
+}
+
+#players p
+{
+	font-size:16px;
 }
 
 #resetGame
@@ -72,3 +77,16 @@ text-align:center;
 	border-left:1px solid #CDCDCD;
 	height:300px;
 }
+
+.col-md-1.rightie
+{
+	padding-left:60px;
+}
+
+#score1 , #score2, #ties
+{
+	padding-left:10px;
+	
+	
+}
+

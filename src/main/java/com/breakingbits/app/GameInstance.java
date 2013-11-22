@@ -40,11 +40,11 @@ public class GameInstance
 		{
 			if(turns % 2 == 0)
 			{
-			activePlayer = 1;
+			activePlayer = 2;
 			}
 			else
 			{
-			activePlayer = 2;
+			activePlayer = 1;
 			}
 
 			turns++;

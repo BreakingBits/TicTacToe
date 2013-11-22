@@ -6,10 +6,11 @@ $(document).ready(function() {
     var player1;
     var player2;
 
-     $('#X').toggleClass('activePlayer');
+     //$('#X').toggleClass('activePlayer');
     //Input players
     $('#players').hide();
     $('#resetGame').hide();
+    $('#rightBar').hide();
     $( "#enterPlayer1" ).click(function() {
         $("#inputPlayer1").hide();
         $("#inputPlayer2").show();
@@ -28,11 +29,14 @@ $(document).ready(function() {
         }).done(function(data) {
             var playerObject = JSON.parse(data);
             $('#X').append(playerObject.player1);
-            $('#O').append(playerObject.player2);
+            $('#p1_score').append(playerObject.player1);
+            $('#p2_score').append(playerObject.player2);
             $('#board').show();
             $("#inputPlayer2").hide();
             $('#players').show();
             $('#resetGame').show();
+            $('#rightBar').show();
+
         }).fail(function() {
             $('#message').html('Vinsamlegast sláið inn bæði nöfnin').attr('class', 'alert alert-danger');
         });
@@ -75,17 +79,26 @@ $(document).ready(function() {
             {
               $(cellId).append("<span class='token'>" + symbol + "</symbol>"); 
               $(cellId).addClass('played');
-              if(result.activePlayer == 1)
+              /*if(result.activePlayer == 2)
               {
+                $('#X').show();
+                $('#O').hide();
+
                 $('#X').addClass('activePlayer');
                 $('#O').removeClass('activePlayer');
 
               }
-                if(result.activePlayer == 2)
+                if(result.activePlayer == 1)
               {
+                
                 $('#O').addClass('activePlayer');
                 $('#X').removeClass('activePlayer');
-              }            
+
+                 $('#X').hide();
+                $('#O').show();
+              }*/
+
+              $('#X').html(result.playerName);          
              turn++;  
               }
 
@@ -125,6 +138,7 @@ $(document).ready(function() {
     //Reset button, clears grid
     $('#resetGame').on('click', function(e) {
         resetGame();
+         location.reload();  
     })
 
     function resetGame()
@@ -144,7 +158,9 @@ $(document).ready(function() {
             console.log("failed");
         });
 
-        $('.token').remove();      
+        $('.token').remove();
+
+        
     }
 
       function getWins()

@@ -16,28 +16,28 @@
 
         <div class="row">
 
-            <div class="col-md-5 col-md-offset-2">
+            <div class="col-md-3 col-md-offset-2">
                 <h1>Tic Tac Toe</h1>
                 
             </div>
-            <div class="col-md-5">                    
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-12">
-
-                <div id="message">
+            <div class="col-md-5"> 
+                <div id="players">
+                    
+                        <span id="X" class="activePlayer"></span>
+                                         
+                         á að gera!
+                    
                 </div>
-
             </div>
-            
         </div>
 
         <div class="row">
+            <div class="col-md-12">
+                <div id="message"></div>
+            </div>            
+        </div>
 
+        <div class="row">
             <div class="col-md-5 col-md-offset-2">             
                     <div id="inputPlayer1">
                         <div class="form-group">
@@ -79,11 +79,42 @@
                 </table>
             </div>
             <div class="col-md-5" id="rightBar">
-              <div id="players">
-                    <span id="X" class=""></span> :  <span id="score1">0</span></br>
-                    <span id="O" class=""></span> : <span id="score2">0</span> </br>
-                    <span>Jafntefli</span> : <span id="ties">0</span> </br>
-                     <button type="button" id="resetGame" class="btn btn-danger">Byrja uppá nýtt</button>
+                 <div id="score">
+                    <div class="row">
+                        <div class="col-md-1">
+
+                        </div>
+                        <div class="col-md-1 rightie">
+                            <p>Stig</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1 " id="p1_score">
+
+                        </div>
+                        <div class="col-md-1 rightie">
+                            <span id="score1">0</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1" id="p2_score">
+
+                        </div>
+                        <div class="col-md-1 rightie">
+                             <span id="score2">0</span> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <p>Ties</p>
+                        </div>
+                        <div class="col-md-1 rightie">
+                            <span id="ties">0</span>
+                        </div>
+                    </div>                     
+                     <button type="button" id="resetGame" class="btn btn-danger">Byrja uppá nýtt</button>      
               </div>
             </div>
         </div>

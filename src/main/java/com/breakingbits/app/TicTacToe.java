@@ -41,6 +41,8 @@ public class TicTacToe
             public Object handle(Request request, Response response) {
                 String cellStr = request.queryParams("idOfCell");
                 int cell = Integer.parseInt(cellStr);
+                //String playerStr = request.queryParams("player");
+                //int player = Integer.parseInt(playerStr);
                 game.playerMakeMove(cell, 1);
 
                 int gameStatus = game.gameStatus();

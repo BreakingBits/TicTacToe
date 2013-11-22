@@ -6,7 +6,7 @@ $(document).ready(function() {
     var player1;
     var player2;
 
-     //$('#X').toggleClass('activePlayer');
+     
     //Input players
     $('#players').hide();
     $('#resetGame').hide();
@@ -79,24 +79,7 @@ $(document).ready(function() {
             {
               $(cellId).append("<span class='token'>" + symbol + "</symbol>"); 
               $(cellId).addClass('played');
-              /*if(result.activePlayer == 2)
-              {
-                $('#X').show();
-                $('#O').hide();
-
-                $('#X').addClass('activePlayer');
-                $('#O').removeClass('activePlayer');
-
-              }
-                if(result.activePlayer == 1)
-              {
-                
-                $('#O').addClass('activePlayer');
-                $('#X').removeClass('activePlayer');
-
-                 $('#X').hide();
-                $('#O').show();
-              }*/
+             
 
               $('#X').html(result.playerName);          
              turn++;  
@@ -149,8 +132,7 @@ $(document).ready(function() {
            
         }).done(function() {
            console.log("cleared");
-           $('#X').toggleClass('activePlayer');
-           $('#O').toggleClass('activePlayer');
+          
            $('.gameCell').removeClass('played');
 
           

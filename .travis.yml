@@ -5,7 +5,7 @@ jdk:
 deploy:
   provider: heroku
   api_key:
-    secure: gsX9byxHsfK56zPCrXGBj8wMhKvB62qpL44A8FF47wbi5oipehR3y7FD9SL/bwWAew6zlDg+tcGm6bOxdtRCA2fLm6/bB+7sxkPaiKqTLN51Hk4VHK4qYEmt1veW8PRbfXHnAfNb/i1VnYkJPxvBVQCxlqaRLnqd+t8rlnM5ulA=
+    secure: WyBwGOBy0s9H/ZyGQLTdh+LGoZMqlLYgJpay5adfvratsx5XTR6fh+5p6sjkDoRKEh9/d7F1fjtYG5+LuHd0Xb1nAGYhn2R89yRu9tSr86D/t1M7Z2bQy+MU/kFmPh/Ci//JsEHMBV48km1Bw+Pd8hZhYppE/mORFGj4jZ6uOHo=
   app: breakingbits-staging
   on:
     repo: BreakingBits/TicTacToe

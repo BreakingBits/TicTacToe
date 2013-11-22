@@ -4,8 +4,8 @@ table#board
 }
 table td
 {
-	width:180px;
-	height:180px;
+	width:100px;
+	height:100px;
 	padding:10px;
 	background-color: #eee;
 	border: 1px solid #ddd;

@@ -1,14 +1,19 @@
 $(document).ready(function() {
 
+
+    //Input players
     var formAndInsertName = $('form#insertName');
     $( "#enterPlayer1" ).click(function() {
         $("#inputPlayer1").hide();
         $("#inputPlayer2").show();
     });
 
+    //Input player 2 and ajax submit
     $( "#enterPlayer2" ).click(function(e) {
         var player1 = $("#player1").val();
         var player2 = $("#player2").val();
+
+
         $.ajax({
             type: formAndInsertName.attr('method'),
             url: formAndInsertName.attr('action'),
@@ -51,5 +56,19 @@ $(document).ready(function() {
             $('#player2').focus();
         }
     });
+
+    //Reset button, clears grid
+    $('#resetGame').on('click', function(e) {
+
+         $.ajax({
+            type: "POST",
+            url: "/resetGame",
+           
+        }).done(function() {
+           console.log("cleared");
+        }).fail(function() {
+            console.log("failed");
+        });    
+    })
 
 });

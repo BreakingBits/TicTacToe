@@ -34,8 +34,7 @@ public class TicTacToe
             }
         });
 
-        final GameInstance game = new GameInstance(playerOne, playerTwo);
-        final int grid[] = game.getGameBoard();
+        final GameInstance game = new GameInstance(playerOne, playerTwo);       
 
         post(new Route("/clickField") {
             @Override
@@ -49,6 +48,15 @@ public class TicTacToe
                 JSONObject cellObject = new JSONObject();
                 cellObject.put("gameStatus", gameStatus);
                 return cellObject;
+            }
+        });
+
+        post(new Route("/resetGame") {
+            @Override
+            public Object handle(Request request, Response response) {
+                
+                game.clearBoard();                
+                return "ok";
             }
         });
 

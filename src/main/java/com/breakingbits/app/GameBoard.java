@@ -22,6 +22,7 @@ public class GameBoard
  		return grid[slot];
  	}
 
+ 	//Reset game
  	public static void clearGrid() {
  		for (int i = 0; i < 9; i++) {
  			grid[i] = 0;

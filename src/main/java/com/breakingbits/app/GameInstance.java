@@ -17,6 +17,12 @@ public class GameInstance
 	public int[] getGameBoard() {
 		return board.getGrid();
 	}
+	
+	//reset game
+	public void clearBoard() {
+
+		board.clearGrid();
+	}
 
 	public void playerMakeMove(int cell, int symbol) {
 		board.setGrid(cell, symbol);

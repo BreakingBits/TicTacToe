@@ -26,15 +26,15 @@ $(document).ready(function() {
     });
 
     var formAndClickField = $('form#clickField');
-    $( ".gameField" ).click(function(e) {
-        var field = $(this).attr("id");
-        var idOfField = field.slice(5);
-        console.log("id: " + idOfField);
+    $( ".gameCell" ).click(function(e) {
+        var cell = $(this).attr("id");
+        var idOfCell = cell.slice(5);
+        console.log("id: " + idOfCell);
 
         $.ajax({
             type: formAndClickField.attr('method'),
             url: formAndClickField.attr('action'),
-            data: 'idOfField=' + idOfField
+            data: 'idOfCell=' + idOfCell
         }).done(function(obj) {
             console.log(obj);
         }).fail(function() {

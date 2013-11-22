@@ -35,10 +35,10 @@ public class TicTacToe
         post(new Route("/clickField") {
             @Override
             public Object handle(Request request, Response response) {
-                String field = request.queryParams("idOfField");
-                JSONObject fieldObject = new JSONObject();
-                fieldObject.put("filedClicked", field);
-                return fieldObject;
+                String cellStr = request.queryParams("idOfCell");
+                JSONObject cellObject = new JSONObject();
+                cellObject.put("idOfCell", cellStr);
+                return cellObject;
             }
         });
         

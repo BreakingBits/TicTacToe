@@ -3,10 +3,13 @@ $(document).ready(function() {
     var activePlayer;
     var turn = 0;
     var symbol;
+    var player1;
+    var player2;
 
      $('#X').toggleClass('activePlayer');
     //Input players
-   
+    $('#players').hide();
+    $('#resetGame').hide();
     $( "#enterPlayer1" ).click(function() {
         $("#inputPlayer1").hide();
         $("#inputPlayer2").show();
@@ -14,8 +17,8 @@ $(document).ready(function() {
 
     //Input player 2 and ajax submit
     $( "#enterPlayer2" ).click(function(e) {
-        var player1 = $("#player1").val();
-        var player2 = $("#player2").val();
+        player1 = $("#player1").val();
+        player2 = $("#player2").val();
 
 
         $.ajax({
@@ -24,10 +27,12 @@ $(document).ready(function() {
             data: 'player1=' + player1 + '&player2=' + player2
         }).done(function(data) {
             var playerObject = JSON.parse(data);
-            $('#X').append(': ' + playerObject.player1);
-            $('#O').append(': ' + playerObject.player2);
+            $('#X').append(playerObject.player1);
+            $('#O').append(playerObject.player2);
             $('#board').show();
             $("#inputPlayer2").hide();
+            $('#players').show();
+            $('#resetGame').show();
         }).fail(function() {
             $('#message').html('Vinsamlegast sláið inn bæði nöfnin').attr('class', 'alert alert-danger');
         });
@@ -63,21 +68,49 @@ $(document).ready(function() {
             url: "/clickField",
             data: 'idOfCell=' + idOfCell + '&player=' + activePlayer
         }).done(function(obj) {
-            console.log(obj);        
-             //Vantar tékkið serverside eins og er
-             if ($('#' + cell).contents().length == 0) 
-             {
+            
+            var result = JSON.parse(obj);
+
+            if(result.legal == 1)
+            {
               $(cellId).append("<span class='token'>" + symbol + "</symbol>"); 
               $(cellId).addClass('played');
-              $('#X').toggleClass('activePlayer');
-              $('#O').toggleClass('activePlayer');
-              turn++;      
-             }
+              if(result.activePlayer == 1)
+              {
+                $('#X').addClass('activePlayer');
+                $('#O').removeClass('activePlayer');
+
+              }
+                if(result.activePlayer == 2)
+              {
+                $('#O').addClass('activePlayer');
+                $('#X').removeClass('activePlayer');
+              }            
+             turn++;  
+              }
+
+            if(result.gameStatus == 1)
+            {
+                alert(player1 + " Vann leikinn, in yo face sucka!");
+                resetGame();
+                getWins();
+            }
+            if(result.gameStatus == 2)
+            {
+                alert(player2 + " Vann leikinn, in yo face sucka!");
+                resetGame();
+                getWins();
+            }
+              if(result.gameStatus == 3)
+            {
+                alert("Jafntefli, skammist ykkar!");
+                resetGame();
+                getWins();
+            }     
              
         }).fail(function() {
             console.log("feeeeil!");
         });
-
        
     });
 
@@ -91,7 +124,11 @@ $(document).ready(function() {
 
     //Reset button, clears grid
     $('#resetGame').on('click', function(e) {
+        resetGame();
+    })
 
+    function resetGame()
+    {      
          $.ajax({
             type: "POST",
             url: "/resetGame",
@@ -107,7 +144,29 @@ $(document).ready(function() {
             console.log("failed");
         });
 
-        $('.token').remove();    
-    })
+        $('.token').remove();      
+    }
+
+      function getWins()
+    {      
+         $.ajax({
+            type: "GET",
+            url: "/getWins",
+           
+        }).done(function(obj) {
+          var result = JSON.parse(obj);
+
+
+           $('#score1').html(result.player1wins);
+           $('#score2').html(result.player2wins);
+           $('#ties').html(result.ties);
+
+          
+        }).fail(function() {
+            console.log("failed");
+        });
+
+            
+    }
 
 });

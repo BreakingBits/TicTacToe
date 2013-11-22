@@ -60,12 +60,16 @@ public class GameInstance
 
 	public static int gameStatus() {
 		if ( board.checkIfWinner(playerOne.getSymbol()) ) {
+			playerOne.incrementWins();
 			return 1;
 		}
 		else if ( board.checkIfWinner(playerTwo.getSymbol()) ) {
+			playerTwo.incrementWins();
 			return 2;
 		}
 		else if ( board.checkIfTie() ) {
+			playerOne.incrementTies();
+			playerTwo.incrementTies();
 			return 3;
 		}
 		else {

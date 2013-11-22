@@ -37,15 +37,17 @@ public class TicTacToe
         });
 
         final GameInstance game = new GameInstance(playerOne, playerTwo);       
-
+        //Cellid & number of player making a move
         post(new Route("/clickField") {
             @Override
             public Object handle(Request request, Response response) {
                 String cellStr = request.queryParams("idOfCell");
+                String actPlr = request.queryParams("player");
+                int activePlayer = Integer.parseInt(actPlr);
                 int cell = Integer.parseInt(cellStr);
                 //String playerStr = request.queryParams("player");
                 //int player = Integer.parseInt(playerStr);
-                game.playerMakeMove(cell, 1);
+                int legal = game.playerMakeMove(cell, activePlayer );
 
                 int gameStatus = game.gameStatus();
 
@@ -53,6 +55,7 @@ public class TicTacToe
                 cellObject.put("gameStatus", gameStatus);
                 cellObject.put("activePlayer", game.getActivePlayer());
                 cellObject.put("turn", game.getTurns());
+                cellObject.put("legal", legal);
                 return cellObject;
             }
         });
@@ -65,6 +68,19 @@ public class TicTacToe
 
                 cellObject.put("activePlayer", game.getActivePlayer()); 
                 cellObject.put("turn", game.getTurns());             
+                return cellObject;
+            }
+        });
+
+        get(new Route("/getWins"){
+            @Override
+            public Object handle(Request request, Response response) {
+                JSONObject cellObject = new JSONObject();
+
+                cellObject.put("player1wins", playerOne.getWins());
+                cellObject.put("player2wins", playerTwo.getWins());
+                cellObject.put("ties", playerTwo.getTies());
+
                 return cellObject;
             }
         });

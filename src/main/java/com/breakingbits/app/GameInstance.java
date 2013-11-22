@@ -20,7 +20,6 @@ public class GameInstance
 	
 	//reset game
 	public void clearBoard() {
-
 		board.clearGrid();
 	}
 
@@ -42,7 +41,4 @@ public class GameInstance
 			return 0;
 		}
 	}
-
-
-
 }

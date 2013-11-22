@@ -1,8 +1,12 @@
 $(document).ready(function() {
 
+    var activePlayer;
+    var turn = 0;
+    var symbol;
 
+     $('#X').toggleClass('activePlayer');
     //Input players
-    var formAndInsertName = $('form#insertName');
+   
     $( "#enterPlayer1" ).click(function() {
         $("#inputPlayer1").hide();
         $("#inputPlayer2").show();
@@ -15,8 +19,8 @@ $(document).ready(function() {
 
 
         $.ajax({
-            type: formAndInsertName.attr('method'),
-            url: formAndInsertName.attr('action'),
+            type: "POST",
+            url: "/insertName",
             data: 'player1=' + player1 + '&player2=' + player2
         }).done(function(data) {
             var playerObject = JSON.parse(data);
@@ -30,23 +34,50 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    var formAndClickField = $('form#clickField');
-    $( ".gameCell" ).click(function(e) {
+
+    //make move
+    $( ".gameCell" ).click(function() {
+
+        if(turn % 2 == 0)
+        {
+            activePlayer = 1
+            symbol = "X";
+            
+        }
+        else
+        {
+            activePlayer = 2;
+            symbol = "O";
+           
+        }
+        turn++;
+
         var cell = $(this).attr("id");
         var idOfCell = cell.slice(5);
+        var cellId = '#' + cell;
         console.log("id: " + idOfCell);
 
+        
         $.ajax({
-            type: formAndClickField.attr('method'),
-            url: formAndClickField.attr('action'),
-            data: 'idOfCell=' + idOfCell
+            type: "POST",
+            url: "/clickField",
+            data: 'idOfCell=' + idOfCell + '&player=' + activePlayer
         }).done(function(obj) {
-            console.log(obj);
+            console.log(obj);        
+             //Vantar tékkið serverside eins og er
+             if ($('#' + cell).contents().length == 0) 
+             {
+              $(cellId).append("<span class='token'>" + symbol + "</symbol>"); 
+                $('#X').toggleClass('activePlayer');
+             $('#O').toggleClass('activePlayer');
+      
+             }
+             
         }).fail(function() {
             console.log("feeeeil!");
         });
 
-        e.preventDefault();
+       
     });
 
     $(document).keypress(function(e){
@@ -66,9 +97,13 @@ $(document).ready(function() {
            
         }).done(function() {
            console.log("cleared");
+
+          
         }).fail(function() {
             console.log("failed");
-        });    
+        });
+
+        $('.token').remove();    
     })
 
 });

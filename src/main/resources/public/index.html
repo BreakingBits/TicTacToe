@@ -3,10 +3,9 @@
 
     <head>
     <meta charset="utf-8">
-    <title>Hello world</title>
+    <title>TicTacToe oF DOOOM!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/style.css">
-
     <!-- load bootstrap for nicer ui -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     </head>
@@ -17,9 +16,17 @@
 
         <div class="row">
 
-            <div class="col-md-12">
+            <div class="col-md-2">
                 <h1>Tic Tac Toe</h1>
-                <button type="button" id="resetGame" class="btn btn-default">Núllstilla</button>
+                
+            </div>
+            <div class="col-md-2">
+            
+            <div id="players">
+                    <span id="X" class="">X</span>
+                    <span id="O" class="">O</span>
+                    <button type="button" id="resetGame" class="btn btn-default">Núllstilla</button>
+                </div>
             </div>
 
         </div>
@@ -37,10 +44,7 @@
 
         <div class="row">
 
-            <div class="col-md-12">
-
-                <form method="post" action="/insertName" class="form-inline" role="form" id="insertName">
-
+            <div class="col-md-4">             
                     <div id="inputPlayer1">
                         <div class="form-group">
                         <input type="text" class="form-control" name="player1" id="player1" placeholder="Leikmaður 1">
@@ -55,44 +59,37 @@
                         </div>
 
                         <button id="enterPlayer2" type="submit" class="btn btn-default">Spila</button>
-                    </div>
-
-                </form>
-                
+                    </div>                        
             </div>
             
         </div>
-
-        <table id="board">
-
-            <form method="post" action="/clickField" class="form-inline" role="form" id="clickField">
-                <tr>
-                    <td class="gameCell" id="field0"></td>
-                    <td class="gameCell" id="field1"></td>
-                    <td class="gameCell" id="field2"></td>
-                </tr>
-                <tr>
-                    <td class="gameCell" id="field3"></td>
-                    <td class="gameCell" id="field4"></td>
-                    <td class="gameCell" id="field5"></td>
-                </tr>
-                <tr>
-                    <td class="gameCell" id="field6"></td>
-                    <td class="gameCell" id="field7"></td>
-                    <td class="gameCell" id="field8"></td>
-                </tr>
-            </form>
-
-        </table>
-
+        
+        <div class="row">
+            <div class="col-md-6-offset-2">
+                <table id="board">            
+                        <tr>
+                            <td class="gameCell" id="field0"></td>
+                            <td class="gameCell" id="field1"></td>
+                            <td class="gameCell" id="field2"></td>
+                        </tr>
+                        <tr>
+                            <td class="gameCell" id="field3"></td>
+                            <td class="gameCell" id="field4"></td>
+                            <td class="gameCell" id="field5"></td>
+                        </tr>
+                        <tr>
+                            <td class="gameCell" id="field6"></td>
+                            <td class="gameCell" id="field7"></td>
+                            <td class="gameCell" id="field8"></td>
+                        </tr>         
+                </table>
+            </div>
+        </div>
         <div class="row">
 
             <div class="col-md-12">
         
-                <div id="players">
-                    <div id="X" class="">Leikmaður X</div>
-                    <div id="O" class="">Leikmaður O</div>
-                </div>
+                
                         
             </div>
             

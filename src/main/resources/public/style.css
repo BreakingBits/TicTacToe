@@ -4,7 +4,7 @@ table#board
 }
 table td
 {
-	width:100px;
+	width:120px;
 	height:100px;
 	padding:10px;
 	background-color: #eee;
@@ -17,4 +17,21 @@ table td:hover
 #inputPlayer2
 {
 	display: none;
+}
+
+.token
+{
+	font-size: 60px;	
+}
+
+.gameCell
+{
+
+padding:0px;
+text-align:center;
+}
+
+.activePlayer
+{
+	font-weight:bold;
 }

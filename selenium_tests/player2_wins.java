@@ -24,16 +24,17 @@ public class player2_wins {
 	@Test
 	public void testPlayer2_wins() throws Exception {
 		selenium.open("/");
-		selenium.click("id=field2");
-		selenium.click("id=field1");
+		selenium.click("id=enterPlayer1");
+		selenium.type("id=player1", "test1");
+		selenium.type("id=player2", "test2");
+		selenium.click("id=enterPlayer2");
 		selenium.click("id=field0");
-		selenium.click("id=field3");
+		selenium.click("id=field1");
 		selenium.click("id=field5");
-		selenium.click("id=field8");
-		selenium.click("id=field7");
 		selenium.click("id=field4");
 		selenium.click("id=field6");
-		assertEquals("Jafntefli, skammist ykkar!", selenium.getAlert());
+		selenium.click("id=field7");
+		assertEquals("test2 Vann leikinn, in yo face sucka!", selenium.getAlert());
 	}
 
 	@After

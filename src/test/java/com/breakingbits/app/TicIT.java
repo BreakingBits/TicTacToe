@@ -59,14 +59,23 @@ public class TicIT {
 	public void testPlayer1Wins() throws Exception {
 		selenium.open("/");
 		selenium.type("id=player1", "test1");
+		thread.sleep(500);
 		selenium.click("id=enterPlayer1");
+		thread.sleep(500);
 		selenium.type("id=player2", "test2");
+		thread.sleep(500);
 		selenium.click("id=enterPlayer2");
+		thread.sleep(500);
 		selenium.click("id=field0");
+		thread.sleep(500);
 		selenium.click("id=field1");
+		thread.sleep(500);
 		selenium.click("id=field4");
+		thread.sleep(500);
 		selenium.click("id=field5");
+		thread.sleep(500);
 		selenium.click("id=field8");
+		thread.sleep(500);
 		assertEquals("test1 Vann leikinn, in yo face sucka!", selenium.getAlert());
 	}
 
@@ -74,15 +83,25 @@ public class TicIT {
 	public void testPlayer2Wins() throws Exception {
 		selenium.open("/");
 		selenium.type("id=player1", "test1");
+		thread.sleep(500);
 		selenium.click("id=enterPlayer1");
+		thread.sleep(500);
 		selenium.type("id=player2", "test2");
+		thread.sleep(500);
 		selenium.click("id=enterPlayer2");
+		thread.sleep(500);
 		selenium.click("id=field0");
+		thread.sleep(500);
 		selenium.click("id=field1");
+		thread.sleep(500);
 		selenium.click("id=field5");
+		thread.sleep(500);
 		selenium.click("id=field4");
+		thread.sleep(500);
 		selenium.click("id=field6");
+		thread.sleep(500);
 		selenium.click("id=field7");
+		thread.sleep(500);
 		assertEquals("test2 Vann leikinn, in yo face sucka!", selenium.getAlert());
 	}
 

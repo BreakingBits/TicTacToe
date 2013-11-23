@@ -4,9 +4,7 @@ sh ./bin/selenium_test_xvfb
 status=$?
 
 if [ $status -eq 0 ]; then
-	echo "STAGING looks good, you should promote to PRODUCTION"
+	sh ./bin/prod_server
 else
 	echo "fayle!"
 fi
-
-exit $status

@@ -18,6 +18,4 @@ install:
 
 after_script:
 - "sh bin/after_script"
-- status=$?
 - "sh -e /etc/init.d/xvfb stop"
-- if [ $status -eq 0 ]; then "sh bin/prod_server"; fi

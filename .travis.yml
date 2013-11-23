@@ -21,7 +21,7 @@ install:
 - sudo apt-get install -y xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
 
 after_script:
-- export STAGING_SERVER=http://helloworld-staging.herokuapp.com/
+- export STAGING_SERVER=http://http://breakingbits-staging.herokuapp.com/
 - sh bin/selenium_test_xvfb
 - echo "STAGING looks good you should promote to PRODUCTION"
 

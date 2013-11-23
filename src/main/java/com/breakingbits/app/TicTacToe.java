@@ -31,6 +31,9 @@ public class TicTacToe
         post(new Route("/insertName") {
             @Override
             public Object handle(Request request, Response response) {
+                game.clearBoard();
+                game.resetScores();
+
                 String playerOneName = request.queryParams("player1");
                 String playerTwoName = request.queryParams("player2");
                 playerOne.setName(playerOneName);
@@ -80,13 +83,14 @@ public class TicTacToe
             @Override
             public Object handle(Request request, Response response) {
                 JSONObject cellObject = new JSONObject();
-                game.clearBoard(); 
+                game.clearBoard();
                 cellObject.put("activePlayer", game.getActivePlayer()); 
                 cellObject.put("turn", game.getTurns());
 
                 return cellObject;
             }
         });
+
         //Returns the wins and ties of players
         get(new Route("/getWins"){
             @Override
@@ -99,5 +103,6 @@ public class TicTacToe
                 return cellObject;
             }
         });
+        
     }
 }

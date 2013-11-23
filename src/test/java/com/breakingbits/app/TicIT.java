@@ -17,7 +17,7 @@ public class TicIT {
 	@Before
 	public void setUp() throws Exception {
 		WebDriver driver = new FirefoxDriver();
-		String baseUrl = "http://localhost:4567/";
+		String baseUrl = "http://breakingbits-staging.herokuapp.com/";
 		selenium = new WebDriverBackedSelenium(driver, baseUrl);
 	}
 
@@ -54,7 +54,7 @@ public class TicIT {
 		selenium.click("id=field8");
 		assertEquals("test1 Vann leikinn, in yo face sucka!", selenium.getAlert());
 	}
-	
+
 	@Test
 	public void testPlayer2Wins() throws Exception {
 		selenium.open("/");

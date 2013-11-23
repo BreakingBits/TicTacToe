@@ -10,9 +10,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
+import java.lang.Thread.*;
 
 public class TicIT {
 	private Selenium selenium;
+	private Thread thread = new Thread();
 
 	@Before
 	public void setUp() throws Exception {
@@ -25,18 +27,31 @@ public class TicIT {
 	public void testTie() throws Exception {
 		selenium.open("/");
 		selenium.type("id=player1", "test1");
+		thread.sleep(100);
 		selenium.click("id=enterPlayer1");
+		thread.sleep(100);
 		selenium.type("id=player2", "test2");
+		thread.sleep(100);
 		selenium.click("id=enterPlayer2");
+		thread.sleep(100);
 		selenium.click("id=field2");
+		thread.sleep(100);
 		selenium.click("id=field1");
+		thread.sleep(100);
 		selenium.click("id=field0");
+		thread.sleep(100);
 		selenium.click("id=field3");
+		thread.sleep(100);
 		selenium.click("id=field5");
+		thread.sleep(100);
 		selenium.click("id=field8");
+		thread.sleep(100);
 		selenium.click("id=field7");
+		thread.sleep(100);
 		selenium.click("id=field4");
+		thread.sleep(100);
 		selenium.click("id=field6");
+		thread.sleep(100);
 		assertEquals("Jafntefli, skammist ykkar!", selenium.getAlert());
 	}
 

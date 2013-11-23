@@ -19,6 +19,5 @@ install:
 after_script:
 - "sh bin/after_script"
 - status=$?
-- echo $status
 - "sh -e /etc/init.d/xvfb stop"
-- exit 1
+- if [ $status -eq 0 ] then; "sh bin/prod_server"; else "echo Selenium tests failed. Deployment stopped"; fi

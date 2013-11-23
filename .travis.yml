@@ -20,7 +20,7 @@ after_script:
 - "sh bin/after_script"
 - status=$?
 - if [ $status -eq 0 ]; then
-languange:java
+"languange:java
 jdk:openjdk7
 deploy:
 	provider: heroku
@@ -29,5 +29,5 @@ deploy:
 	app: breakingbits-production
 	on:
 		repo: BreakingBits/TicTacToe
-		fi
+		fi"
 - "sh -e /etc/init.d/xvfb stop"

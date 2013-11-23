@@ -61,14 +61,10 @@ without connecting to another server -->
             <packageBranchRate>85</packageBranchRate>
             <regexes>
               <regex>
-                <pattern>com.example.reallyimportant.*</pattern>
-                <branchRate>90</branchRate>
-                <lineRate>80</lineRate>
+                
               </regex>
               <regex>
-                <pattern>com.example.boringcode.*</pattern>
-                <branchRate>40</branchRate>
-                <lineRate>30</lineRate>
+                
               </regex>
             </regexes>
           </check>
@@ -104,6 +100,12 @@ without connecting to another server -->
               <include>/home/jakob/Documents/GutHub/TicTacToe/src/main/java/com/breakingbits/app/TicTacToe.java</include>
               <include>/home/jakob/Documents/GutHub/TicTacToe/src/main/java/com/breakingbits/app/GameBoard.java</include>-->
             </includes>
+            <ignores>
+              <ignore>/home/jakob/Documents/GutHub/TicTacToe/src/main/java/com/breakingbits/app/TicTacToe.java</ignore>
+            </ignores>
+            <excludes>
+              <exclude>/home/jakob/Documents/GutHub/TicTacToe/src/main/java/com/breakingbits/app/TicTacToe.java</exclude>
+            </excludes>
           </instrumentation>
         </configuration>
         <executions>
@@ -140,6 +142,20 @@ without connecting to another server -->
       </formats>
      </configuration>
       </plugin>
+
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>2.11</version>
+          <reportSets>
+            <reportSet>
+              <reports>
+                <report>checkstyle</report>
+              </reports>
+            </reportSet>
+          </reportSets>
+        </plugin>
+
     </plugins>
   </reporting>
 

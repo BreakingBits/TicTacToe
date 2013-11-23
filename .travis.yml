@@ -28,6 +28,5 @@ deploy:
 		secure: WyBwGOBy0s9H/ZyGQLTdh+LGoZMqlLYgJpay5adfvratsx5XTR6fh+5p6sjkDoRKEh9/d7F1fjtYG5+LuHd0Xb1nAGYhn2R89yRu9tSr86D/t1M7Z2bQy+MU/kFmPh/Ci//JsEHMBV48km1Bw+Pd8hZhYppE/mORFGj4jZ6uOHo=
 	app: breakingbits-production
 	on:
-		repo: BreakingBits/TicTacToe;
-		fi"
+		repo: BreakingBits/TicTacToe; fi"
 - "sh -e /etc/init.d/xvfb stop"

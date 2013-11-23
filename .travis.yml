@@ -21,3 +21,4 @@ after_script:
 - status=$?
 - echo $status
 - "sh -e /etc/init.d/xvfb stop"
+- exit 1

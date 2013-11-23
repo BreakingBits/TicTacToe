@@ -12,8 +12,6 @@ public class GameInstanceTest
     public void initilizeTestVariables() {
     	testPlayerOne = new Player();
     	testPlayerTwo = new Player();
-	    testPlayerOne.setSymbol(1);
-    	testPlayerTwo.setSymbol(2);
     	testGame = new GameInstance(testPlayerOne, testPlayerTwo);
     }
 

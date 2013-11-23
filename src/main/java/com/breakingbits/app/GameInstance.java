@@ -22,10 +22,6 @@ public class GameInstance
 		activePlayer = 1;
 		turns = 0;
 	}
-
-	/*public int[] getGameBoard() {
-		return board.getGrid();
-	}*/
 	
 	//reset game
 	public void clearBoard() {
@@ -64,11 +60,11 @@ public class GameInstance
 	}
 
 	public static int gameStatus() {
-		if ( board.checkIfWinner(playerOne.getSymbol()) ) {
+		if ( board.checkIfWinner(1) ) {
 			playerOne.incrementWins();
 			return 1;
 		}
-		else if ( board.checkIfWinner(playerTwo.getSymbol()) ) {
+		else if ( board.checkIfWinner(2) ) {
 			playerTwo.incrementWins();
 			return 2;
 		}

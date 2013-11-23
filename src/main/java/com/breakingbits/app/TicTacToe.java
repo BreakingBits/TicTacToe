@@ -23,8 +23,6 @@ public class TicTacToe
         //Init players and game        
         final Player playerOne = new Player();
         final Player playerTwo = new Player(); 
-        playerOne.setSymbol(1);
-        playerTwo.setSymbol(2); 
         final GameInstance game = new GameInstance(playerOne, playerTwo); 
 
         //Assign names

@@ -9,16 +9,11 @@ deploy:
   on:
     repo: BreakingBits/TicTacToe
 
-#script:
-#- sh bin//selenium_test_xvfb
-#after_success:
-#- echo "STAGING looks good you should promote to PRODUCTION"
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
 install:
-# Get Xvfb and Firefox
-#- sudo apt-get install -y xvfb firefox
-#- sudo apt-get -y install x-ttcidfont-conf
-# Install Xvfb packages
-- sudo apt-get install -y xvfb
 - sudo apt-get install -y xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
 
 after_script:

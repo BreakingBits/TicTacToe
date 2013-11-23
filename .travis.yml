@@ -17,9 +17,7 @@ install:
 - "sudo apt-get install -y xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic"
 
 after_script:
-- "export STAGING_SERVER=http://http://breakingbits-staging.herokuapp.com/"
 - "sh bin/after_script"
 - status=$?
+- echo $status
 - "sh -e /etc/init.d/xvfb stop"
-
-exit: 1

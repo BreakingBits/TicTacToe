@@ -1,3 +1,4 @@
 #!/bin/bash
 yes | git remote add heroku git@heroku.com:breakingbits-production.git
+yes | heroku keys:add
 yes | git push heroku master

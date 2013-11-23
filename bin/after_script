@@ -1,0 +1,11 @@
+#!/bin/bash
+"export STAGING_SERVER=http://http://breakingbits-staging.herokuapp.com/"
+"sh bin/selenium_test_xvfb"
+status=$?
+"sh -e /etc/init.d/xvfb stop"
+
+if [ $status -eq 0 ]; then
+	echo "STAGING looks good, you should promote to PRODUCTION"
+else
+	echo "fayle!"
+fi

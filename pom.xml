@@ -94,17 +94,11 @@ without connecting to another server -->
         <version>2.6</version>
         <configuration>
           <instrumentation>
-            <includes>
-              <!--<include>/home/jakob/Documents/GutHub/TicTacToe/src/main/java/com/breakingbits/app/GameInstance.java</include>
-              <include>/home/jakob/Documents/GutHub/TicTacToe/src/main/java/com/breakingbits/app/Player.java</include>
-              <include>/home/jakob/Documents/GutHub/TicTacToe/src/main/java/com/breakingbits/app/TicTacToe.java</include>
-              <include>/home/jakob/Documents/GutHub/TicTacToe/src/main/java/com/breakingbits/app/GameBoard.java</include>-->
-            </includes>
             <ignores>
-              <ignore>/home/jakob/Documents/GutHub/TicTacToe/src/main/java/com/breakingbits/app/TicTacToe.java</ignore>
+              <ignore>src/main/java/com/breakingbits/app/TicTacToe.java</ignore>
             </ignores>
             <excludes>
-              <exclude>/home/jakob/Documents/GutHub/TicTacToe/src/main/java/com/breakingbits/app/TicTacToe.java</exclude>
+              <exclude>src/main/java/com/breakingbits/app/TicTacToe.java</exclude>
             </excludes>
           </instrumentation>
         </configuration>

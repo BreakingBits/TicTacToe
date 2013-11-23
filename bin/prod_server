@@ -1,4 +1,4 @@
 #!/bin/bash
-git remote rm heroku
 git remote add heroku git@heroku.com:breakingbits-production.git
+yes
 git push heroku master

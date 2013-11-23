@@ -1,6 +1,19 @@
 #!/bin/bash
 
-yes | git remote add heroku git@heroku.com:breakingbits-production.git
-echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+gem install heroku
+git remote add heroku git@heroku.com:breakingbits-production.git
+export HEROKU_API_KEY=82e8700a-9789-4191-8d61-5d952eaae67e
+echo "Host heroku.com" >> ~/.ssh/config
+echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+echo "   CheckHostIP no" >> ~/.ssh/config
+echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+heroku keys:clear
 yes | heroku keys:add
 yes | git push heroku master
+
+
+
+#yes | git remote add heroku git@heroku.com:breakingbits-production.git
+#echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+#yes | heroku keys:add
+#yes | git push heroku master

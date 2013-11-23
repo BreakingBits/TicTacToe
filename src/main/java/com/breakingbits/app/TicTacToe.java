@@ -4,19 +4,28 @@ import spark.*;
 import java.util.*;
 import org.json.simple.JSONObject;
 
+/* TicTacToe.java - 23.11.2013
+*  GROUP: Breaking Bits
+*  GIT: https://github.com/organizations/BreakingBits
+*  TicTacToe is the runtime class and handles communication
+*  between players on the web interface and the server.
+*  Routes for creating players with names from input, clicks by players
+*  making moves, resetting the game and a small function to get wins of players.
+*/
+
 public class TicTacToe
 {
     public static void main( String[] args )
     {
         staticFileLocation("/public");
-
         setPort(Integer.valueOf(System.getenv("PORT")));
 
-        //Init players
+        //Init players and game        
         final Player playerOne = new Player();
         final Player playerTwo = new Player(); 
         playerOne.setSymbol(1);
         playerTwo.setSymbol(2); 
+        final GameInstance game = new GameInstance(playerOne, playerTwo); 
 
         //Assign names
         post(new Route("/insertName") {
@@ -24,19 +33,17 @@ public class TicTacToe
             public Object handle(Request request, Response response) {
                 String playerOneName = request.queryParams("player1");
                 String playerTwoName = request.queryParams("player2");
-
                 playerOne.setName(playerOneName);
                 playerTwo.setName(playerTwoName);
-
-                //Send the response as JSON Object
                 JSONObject playerObject = new JSONObject();  
                 playerObject.put("player1", playerOneName);
                 playerObject.put("player2", playerTwoName);
+
                 return playerObject;
             }
         });
 
-        final GameInstance game = new GameInstance(playerOne, playerTwo);       
+              
         //Cellid & number of player making a move
         post(new Route("/clickField") {
             @Override
@@ -45,51 +52,46 @@ public class TicTacToe
                 String actPlr = request.queryParams("player");
                 int activePlayer = Integer.parseInt(actPlr);
                 int cell = Integer.parseInt(cellStr);
-                //String playerStr = request.queryParams("player");
-                //int player = Integer.parseInt(playerStr);
                 String playerName = "";
+
                 int legal = game.playerMakeMove(cell, activePlayer );
 
                 int gameStatus = game.gameStatus();
 
                 if(activePlayer == 2)
-                    {
                         playerName = playerOne.getName();
-                    }
+                    
                 if(activePlayer == 1)
-                    {
                         playerName = playerTwo.getName();
-                    }
+                    
                 JSONObject cellObject = new JSONObject();
                 cellObject.put("gameStatus", gameStatus);
                 cellObject.put("activePlayer", game.getActivePlayer());
                 cellObject.put("playerName", playerName);
                 cellObject.put("turn", game.getTurns());
                 cellObject.put("legal", legal);
+
                 return cellObject;
             }
         });
-
+        
+        //Resets the board
         post(new Route("/resetGame") {
             @Override
             public Object handle(Request request, Response response) {
                 JSONObject cellObject = new JSONObject();
                 game.clearBoard(); 
-
-
-
-
                 cellObject.put("activePlayer", game.getActivePlayer()); 
-                cellObject.put("turn", game.getTurns());             
+                cellObject.put("turn", game.getTurns());
+
                 return cellObject;
             }
         });
-
+        //Returns the wins and ties of players
         get(new Route("/getWins"){
             @Override
             public Object handle(Request request, Response response) {
                 JSONObject cellObject = new JSONObject();
-
                 cellObject.put("player1wins", playerOne.getWins());
                 cellObject.put("player2wins", playerTwo.getWins());
                 cellObject.put("ties", playerTwo.getTies());
@@ -97,8 +99,5 @@ public class TicTacToe
                 return cellObject;
             }
         });
-
-
     }
-
 }

@@ -23,9 +23,9 @@ public class GameInstance
 		turns = 0;
 	}
 
-	public int[] getGameBoard() {
+	/*public int[] getGameBoard() {
 		return board.getGrid();
-	}
+	}*/
 	
 	//reset game
 	public void clearBoard() {

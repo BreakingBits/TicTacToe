@@ -10,6 +10,9 @@ deploy:
   on:
     repo: BreakingBits/TicTacToe
 
-after_script:
-- export STAGING_SERVER=http://breakingbits-staging.herokuapp.com/
+script:
 - sh .//bin//selenium_test_xvfb
+after_success:
+- export PRODUCTION_SERVER=http://breakingbits-production.herokuapp.com/
+
+

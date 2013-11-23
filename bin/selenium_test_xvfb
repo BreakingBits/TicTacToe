@@ -1,5 +1,14 @@
 #!/bin/bash
 
-export STAGING_SERVER=${STAGING_SERVER:='http://breakingbits-staging.herokuapp.com'}
+# Xvfb
+sudo bin/xvfb start
+export DISPLAY=:99
 
+export STAGING_SERVER=${STAGING_SERVER:='http://breakingbits-staging.herokuapp.com'}
 mvn test-compile failsafe:integration-test failsafe:verify
+EXIT_CODE=$?
+
+# Clean up
+sudo bin/xvfb stop
+
+exit $EXIT_CODE

@@ -34,6 +34,11 @@ public class GameInstance
 		turns = 0;
 	}
 
+	public static void resetScores() {
+		playerOne.resetScore();
+		playerTwo.resetScore();
+	}
+
 	public int playerMakeMove(int cell, int symbol) {
 		
 		if(board.getGrid(cell) == 0)
@@ -85,4 +90,5 @@ public class GameInstance
 	public static int getTurns() {
 		return turns;
 	}
+
 }

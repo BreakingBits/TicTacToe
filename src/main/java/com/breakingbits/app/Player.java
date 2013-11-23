@@ -49,7 +49,7 @@ public class Player
         return wins;
     }
 
-    public void incrementWins () {
+    public void incrementWins() {
         wins = wins + 1;
     }
 
@@ -58,7 +58,7 @@ public class Player
         return losses;
     }
 
-    public void incrementLosses () {
+    public void incrementLosses() {
         losses = losses + 1;
     }
 
@@ -67,8 +67,14 @@ public class Player
         return ties;
     }
 
-    public void incrementTies () {
+    public void incrementTies() {
         ties = ties + 1;
+    }
+
+    public void resetScore() {
+        wins = 0;
+        losses = 0;
+        ties = 0;
     }
 
 }

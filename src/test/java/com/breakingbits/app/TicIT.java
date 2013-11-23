@@ -27,31 +27,31 @@ public class TicIT {
 	public void testTie() throws Exception {
 		selenium.open("/");
 		selenium.type("id=player1", "test1");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=enterPlayer1");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.type("id=player2", "test2");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=enterPlayer2");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field2");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field1");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field0");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field3");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field5");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field8");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field7");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field4");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field6");
-		thread.sleep(300);
+		thread.sleep(400);
 		assertEquals("Jafntefli, skammist ykkar!", selenium.getAlert());
 	}
 
@@ -59,23 +59,23 @@ public class TicIT {
 	public void testPlayer1Wins() throws Exception {
 		selenium.open("/");
 		selenium.type("id=player1", "test1");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=enterPlayer1");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.type("id=player2", "test2");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=enterPlayer2");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field0");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field1");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field4");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field5");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field8");
-		thread.sleep(300);
+		thread.sleep(400);
 		assertEquals("test1 Vann leikinn, in yo face sucka!", selenium.getAlert());
 	}
 
@@ -83,25 +83,25 @@ public class TicIT {
 	public void testPlayer2Wins() throws Exception {
 		selenium.open("/");
 		selenium.type("id=player1", "test1");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=enterPlayer1");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.type("id=player2", "test2");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=enterPlayer2");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field0");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field1");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field5");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field4");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field6");
-		thread.sleep(300);
+		thread.sleep(400);
 		selenium.click("id=field7");
-		thread.sleep(300);
+		thread.sleep(400);
 		assertEquals("test2 Vann leikinn, in yo face sucka!", selenium.getAlert());
 	}
 

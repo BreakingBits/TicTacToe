@@ -13,6 +13,13 @@ deploy:
 #- sh bin//selenium_test_xvfb
 #after_success:
 #- echo "STAGING looks good you should promote to PRODUCTION"
+install:
+# Get Xvfb and Firefox
+- sudo apt-get install -y xvfb firefox
+
+# Install Xvfb packages
+- sudo apt-get install -y xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
+
 after_script:
 - export STAGING_SERVER=http://helloworld-staging.herokuapp.com/
 - sh bin/selenium_test_xvfb

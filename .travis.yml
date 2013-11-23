@@ -20,8 +20,8 @@ after_script:
 - "sh bin/after_script"
 - status=$?
 - if [ $status -eq 0 ]; then
-languange:java 
-jdk:openjdk7 
+languange:java
+jdk:openjdk7
 deploy:
 	provider: heroku
 	api_key:
@@ -29,4 +29,5 @@ deploy:
 	app: breakingbits-production
 	on:
 		repo: BreakingBits/TicTacToe
+		fi
 - "sh -e /etc/init.d/xvfb stop"

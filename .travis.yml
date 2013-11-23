@@ -1,3 +1,6 @@
+notifications:
+    email:
+        - brysbra@gmail.com
 language: java
 jdk: openjdk7
 deploy:

@@ -6,5 +6,5 @@ status=$?
 if [ $status -eq 0 ]; then
 	sh ./bin/prod_server
 else
-	echo "fayle!"
+	echo "Selenium tests failed. Cannot deploy to production server."
 fi

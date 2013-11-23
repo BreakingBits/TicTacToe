@@ -10,10 +10,3 @@ echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
 heroku keys:clear
 yes | heroku keys:add
 yes | git push heroku master
-
-
-
-#yes | git remote add heroku git@heroku.com:breakingbits-production.git
-#echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-#yes | heroku keys:add
-#yes | git push heroku master

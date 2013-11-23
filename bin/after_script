@@ -4,7 +4,7 @@ sh ./bin/selenium_test_xvfb
 status=$?
 
 if [ $status -eq 0 ]; then
-	sh ./bin/prod_server
+	echo "najs"
 else
 	echo "fayle!"
 fi

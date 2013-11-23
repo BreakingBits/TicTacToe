@@ -9,4 +9,4 @@ else
 	echo "fayle!"
 fi
 
-exit $status
+exit 1

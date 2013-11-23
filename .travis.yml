@@ -17,8 +17,12 @@ before_install:
 install:
 - "sudo apt-get install -y xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic"
 
-after_script:
+script:
 - "export STAGING_SERVER=http://http://breakingbits-staging.herokuapp.com/"
 - "sh bin/selenium_test_xvfb"
 - "sh -e /etc/init.d/xvfb stop"
+after_sucess:
 - echo "STAGING looks good you should promote to PRODUCTION"
+
+after_failure:
+- echo "Failmayne"

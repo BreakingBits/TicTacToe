@@ -21,15 +21,7 @@ after_script:
 - status=$?
 - "sh -e /etc/init.d/xvfb stop"
 - if [ $status -eq 0 ]; then
-language: java;
-jdk: openjdk7;
-deploy:;
-	provider: heroku;
-	api_key:;
-   		secure: WyBwGOBy0s9H/ZyGQLTdh+LGoZMqlLYgJpay5adfvratsx5XTR6fh+5p6sjkDoRKEh9/d7F1fjtYG5+LuHd0Xb1nAGYhn2R89yRu9tSr86D/t1M7Z2bQy+MU/kFmPh/Ci//JsEHMBV48km1Bw+Pd8hZhYppE/mORFGj4jZ6uOHo=;
-	app: breakingbits-production;
-	on:;
-   		repo: BreakingBits/TicTacToe;
+"sh bin/prod_server";
 else
 	"echo Selenium tests failed. Deployment stopped";
 fi

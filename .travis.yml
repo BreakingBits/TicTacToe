@@ -1,6 +1,5 @@
 language: java
-jdk:
-- openjdk7
+jdk: openjdk7
 deploy:
   provider: heroku
   api_key:
@@ -17,7 +16,7 @@ before_install:
 install:
 - "sudo apt-get install -y xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic"
 
-script:
+after_script:
 - "export STAGING_SERVER=http://http://breakingbits-staging.herokuapp.com/"
 - "sh bin/selenium_test_xvfb"
 - "sh -e /etc/init.d/xvfb stop"

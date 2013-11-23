@@ -16,8 +16,9 @@ deploy:
 install:
 # Get Xvfb and Firefox
 #- sudo apt-get install -y xvfb firefox
-- sudo apt-get -y install x-ttcidfont-conf
+#- sudo apt-get -y install x-ttcidfont-conf
 # Install Xvfb packages
+- mkfontdir
 - sudo apt-get install -y xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
 
 after_script:

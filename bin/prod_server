@@ -1,7 +1,8 @@
 #!/bin/bash
 
+gem install heroku
 git remote add heroku git@heroku.com:breakingbits-production.git
-export HEROKU_API_KEY=WyBwGOBy0s9H/ZyGQLTdh+LGoZMqlLYgJpay5adfvratsx5XTR6fh+5p6sjkDoRKEh9/d7F1fjtYG5+LuHd0Xb1nAGYhn2R89yRu9tSr86D/t1M7Z2bQy+MU/kFmPh/Ci//JsEHMBV48km1Bw+Pd8hZhYppE/mORFGj4jZ6uOHo=
+export HEROKU_API_KEY=82e8700a-9789-4191-8d61-5d952eaae67e
 yes | heroku keys:clear
 yes | heroku keys:add
 yes | git push heroku master

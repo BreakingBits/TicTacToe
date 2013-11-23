@@ -9,3 +9,7 @@ deploy:
   app: breakingbits-staging
   on:
     repo: BreakingBits/TicTacToe
+
+  after_script:
+  - export STAGING_SERVER=http://breakingbits-staging.herokuapp.com/
+  - sh .\bin\selenium_test_xvfb

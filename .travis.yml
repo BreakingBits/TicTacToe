@@ -19,3 +19,4 @@ install:
 after_script:
 - "export STAGING_SERVER=http://http://breakingbits-staging.herokuapp.com/"
 - "sh bin/after_script"
+- "sh -e /etc/init.d/xvfb stop"
